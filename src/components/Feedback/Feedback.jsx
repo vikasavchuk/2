@@ -1,13 +1,13 @@
 import css from "./Feedback.module.css";
 
-const Feedback = () => {
+const Feedback = ({ good, neutral, bad, total }) => {
     return (
         <ul>
-        <li>Good:</li>
-        <li>Neutral:</li>
-        <li>Bad:</li>
-        <li>Total:</li>
-        <li>Positive:</li>
+        <li>Good: {good}</li>
+        <li>Neutral: {neutral}</li>
+        <li>Bad: {bad}</li>
+        <li>Total: {total}</li>
+        <li>Positive: {Math.round(((good + neutral) / total) * 100)}%</li>
       </ul>
     );
 };
