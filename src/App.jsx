@@ -14,6 +14,13 @@ function App() {
     return { good: 0, neutral: 0, bad: 0 };
   });
 
+  const updateFeedback = (feedbackType) => {
+    setClicks((clicks) => ({
+      ...clicks,
+      [feedbackType]: clicks[feedbackType] + 1,
+    }));
+  };
+
   const resetFeedback = () => {
     setClicks({
       good: 0,
@@ -26,14 +33,11 @@ function App() {
     window.localStorage.setItem("saved-feedback", JSON.stringify(clicks));
   }, [clicks]);
 
-  const updateFeedback = (feedbackType) => {
-    setClicks((clicks) => ({
-      ...clicks,
-      [feedbackType]: clicks[feedbackType] + 1,
-    }));
-  };
-
   const totalFeedback = clicks.good + clicks.neutral + clicks.bad;
+
+  const positive = Math.round(
+    ((clicks.good + clicks.neutral) / totalFeedback) * 100
+  );
 
   return (
     <>
@@ -47,11 +51,12 @@ function App() {
         <Notification />
       ) : (
         <Feedback
-          good={clicks.good}
-          neutral={clicks.neutral}
-          bad={clicks.bad}
-          total={totalFeedback}
-        />
+         good={clicks.good}
+         neutral={clicks.neutral}
+         bad={clicks.bad}
+         total={totalFeedback}
+         positive={positive}
+      />
       )}
     </>
   );
