@@ -2,21 +2,24 @@ import css from "./Options.module.css";
 
 const Options = ({ updateFeedback, resetFeedback, totalFeedback }) => {
     return (
-        <div>
+        <div className={css.object}>
         <button
           type="button"
+          className={css.butOp}
           onClick={() => updateFeedback("good")}
         >
           Good
         </button>
         <button
           type="button"
+          className={css.butOp}
           onClick={() => updateFeedback("neutral")}
         >
           Neutral
         </button>
         <button
           type="button"
+          className={css.butOp}
           onClick={() => updateFeedback("bad")}
         >
           Bad
@@ -24,6 +27,7 @@ const Options = ({ updateFeedback, resetFeedback, totalFeedback }) => {
         {totalFeedback > 0 && (
           <button
             type="button"
+            className={css.butOff}
             onClick={() => resetFeedback()}
           >
             Reset

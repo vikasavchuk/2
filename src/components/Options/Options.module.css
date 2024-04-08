@@ -1,0 +1,21 @@
+.object {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.butOp {
+    background-color: #a8a8a8;
+    color: #000000;
+    border-radius: 5px;
+    padding: 15px;
+    min-width: 100px;
+}
+
+.butOff {
+    background-color: #242424;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 15px;
+    min-width: 100px;
+}
